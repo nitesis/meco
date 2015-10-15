@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/HS2015/meco/__remotecopy/Materialien/mp3player/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/HS2015/meco/__remotecopy/Materialien/mp3player/jmf.jar"/>
 	<classpathentry kind="lib" path="/Users/nitesis/Documents/FHNW/HS2015/meco/__remotecopy/Materialien/mp3player/mp3plugin.jar"/>
+	<classpathentry kind="lib" path="/Users/nitesis/Downloads/SceneBuilder-8.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
