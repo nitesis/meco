@@ -782,3 +782,37 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.equinox.ds 1 0 2015-10-15 14:20:12.258
 !MESSAGE Could not bind a reference of component org.eclipse.fx.ide.css.cssext.ui.internal.DefaultCssExtProvider. The reference is: Reference[name = ICSSExtModelProvider, interface = org.eclipse.fx.ide.css.cssext.ICSSExtModelProvider, policy = dynamic, cardinality = 0..n, target = null, bind = bindCssExtensionModelProvider, unbind = unbindCssExtensionModelProvider]
+
+!ENTRY org.eclipse.mylyn.tasks.core 2 0 2015-10-16 20:57:55.507
+!MESSAGE Save failed for Task List
+!STACK 1
+org.eclipse.core.runtime.CoreException: Saving Task List failed
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:128)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant$2.execute(TaskListExternalizationParticipant.java:129)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:673)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:664)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant.save(TaskListExternalizationParticipant.java:133)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.io.FileNotFoundException: /Users/nitesis/Documents/FHNW/workspace/meco/.metadata/.mylyn/tasks.xml.zip (No space left on device)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:109)
+	... 7 more
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2015-10-16 20:57:55.534
+!MESSAGE Saving Task List failed
+!STACK 0
+java.io.FileNotFoundException: /Users/nitesis/Documents/FHNW/workspace/meco/.metadata/.mylyn/tasks.xml.zip (No space left on device)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizer.writeTaskList(TaskListExternalizer.java:109)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant$2.execute(TaskListExternalizationParticipant.java:129)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:673)
+	at org.eclipse.mylyn.internal.tasks.core.TaskList.run(TaskList.java:664)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.TaskListExternalizationParticipant.save(TaskListExternalizationParticipant.java:133)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.AbstractExternalizationParticipant.execute(AbstractExternalizationParticipant.java:70)
+	at org.eclipse.mylyn.internal.tasks.core.externalization.ExternalizationManager$ExternalizationJob.run(ExternalizationManager.java:222)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

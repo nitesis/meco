@@ -19,20 +19,12 @@
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-
 import javazoom.jl.player.Player;
-
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 
 public class MP3Jil {
     private String filename;
     private Player player; 
+
 
     // constructor that takes the name of an MP3 file
     public MP3Jil(String filename) {
@@ -86,6 +78,7 @@ public class MP3Jil {
         // play from the beginning
         mp3 = new MP3Jil(filename);
         mp3.play();
+        
     }
-
+    
 }
