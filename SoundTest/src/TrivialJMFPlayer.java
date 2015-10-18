@@ -126,12 +126,7 @@ public class TrivialJMFPlayer extends JApplet implements ActionListener
 		}
 		else
 		{
-			//ssdir = fc.getCurrentDirectory().getName();
-			//sfile = fc.getSelectedFile().getName();
-			//sfile = getFileLocation(sfile,ssdir);
-			//System.out.println(ssdir+"/");
-			//System.out.println(sfile);
-			
+		
 			Format inMP3 = new AudioFormat(AudioFormat.MPEGLAYER3);
 	        Format inMPEG = new AudioFormat(AudioFormat.MPEG);
 	        Format out = new AudioFormat(AudioFormat.LINEAR);
