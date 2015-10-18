@@ -20,12 +20,20 @@ public class Controller {
 	@FXML
 	private void initialize() {
 		leftButton.setOnAction((event) -> {
-			Main.pauseMusic();
+			if(Main.isPlaying){
+				System.out.println("Pause Music");
+				Main.pauseMusic();	
+			}else{
+				System.out.println("Play Music");
+				Main.restartMusic();
+			}
+			
 		});
 		
 		// Handle Button event.
 		rightButton.setOnAction((event) -> {
-			Main.restartMusic();
+			System.out.println("Stop Music");
+			Main.pauseMusic();
 		});
 		
     }

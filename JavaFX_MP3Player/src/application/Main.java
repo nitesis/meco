@@ -12,7 +12,7 @@ import javax.media.format.AudioFormat;
 public class Main extends Application {
 	//Variablen Deklaration
 	static Player p = null;
-	boolean isPlaying = true;
+	static boolean isPlaying = true;
 	
 	
 	@Override
@@ -46,8 +46,8 @@ public class Main extends Application {
 	public void playMusic(){
 		
 		
-		String ssdir = "music/";
-		String sfile = "besser.mp3";
+		//String ssdir = "music/";
+		//String sfile = "besser.mp3";
 		Format inMP3 = new AudioFormat(AudioFormat.MPEGLAYER3);
         Format inMPEG = new AudioFormat(AudioFormat.MPEG);
         Format out = new AudioFormat(AudioFormat.LINEAR);
@@ -55,6 +55,7 @@ public class Main extends Application {
         PlugInManager.addPlugIn("com.sun.media.codec.audio.mp3.JavaDecoder", new Format[]{inMP3,inMPEG}, 
         		new Format[]{out}, PlugInManager.CODEC);
         try {
+        	//wähle einen SoundTrack aus für mac (//file:...pfad)
         	p = Manager.createRealizedPlayer(new MediaLocator("file:c:/hikids.mp3"));//new File(sfile).toURI().toURL()));	        	
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -64,10 +65,12 @@ public class Main extends Application {
 	}
 	
 	public static void pauseMusic(){
+		isPlaying = false;
 		p.stop();
 	}
 	
 	public static void restartMusic(){
+		isPlaying = true;
 		p.start();
 	}
 }
