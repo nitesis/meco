@@ -54,6 +54,7 @@ public class Main extends Application {
 		setFile(file);
 		System.out.println(file.getName());
 		//Controller.setLblSong(file.getName());
+
     	try {
 			p = Manager.createRealizedPlayer(new MediaLocator(getFile().toURI().toURL()));
 		} catch (NoPlayerException e) {
@@ -74,6 +75,14 @@ public class Main extends Application {
   
 		
 	}
+
+    public String getFileName(){
+        if(file.getName()!=null){
+            return file.getName();
+        }else{
+            return "no File";
+        }
+    }
 	
 	public void playMusic() throws MalformedURLException{
 		Format inMP3 = new AudioFormat(AudioFormat.MPEGLAYER3);
@@ -111,9 +120,6 @@ public class Main extends Application {
 		p.start();
 	}
 
-	public String getFileName() {
-		return file.getName();
-	}
 	public File getFile() {
 		return file;
 	}

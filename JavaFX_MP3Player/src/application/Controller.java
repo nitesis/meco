@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
  
-public class Controller {
+public class Controller implements  Runnable{
 
     @FXML
     private Button leftButton;
@@ -22,9 +22,10 @@ public class Controller {
     
     @FXML
     public ProgressBar progress;
-    
+
 	Main player = new Main();
-	
+
+
 	
 	
     public void setLblSong(String v) {
@@ -39,16 +40,39 @@ public class Controller {
 
 	@FXML
 	private void initialize() {
-		lblSong.setText("Wähle dein Soundtrack");
-		progress.setProgress(0.5);
+		lblSong.setText("Choose a Soundtrack");
+		progress.setProgress(0.0);
 		
     }
 	
 
 	@FXML
     void chooseFile(ActionEvent event) {
+
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+                while(update())
+                {
+                    update();
+
+                    try
+                    {
+                        java.lang.Thread.sleep(500);
+                    }
+                    catch(InterruptedException ie)
+                    {
+                        // ...
+                    }
+                }
+            }
+        });
+
+        t1.start();
 		player.stopMusic();
 		player.chooseFile();
+        String name = player.getFileName();
+        lblSong.setText(name);
+
     }
 
     @FXML
@@ -83,5 +107,25 @@ public class Controller {
 //		}
 	}
 
+    public void setLabelTitle(String v){
+        lblSong.setText(v);
+    }
+
+    public boolean update(){
+        double sec = Main.p.getMediaTime().getSeconds();
+		double all = Main.p.getDuration().getSeconds();
+        double current = 1 / all * sec;
+        if(sec != all){
+            progress.setProgress(current);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public void run(){}
+
 
 }
+
