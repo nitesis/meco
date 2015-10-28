@@ -40,7 +40,7 @@ public class Controller implements  Runnable{
 
 	@FXML
 	private void initialize() {
-		lblSong.setText("Choose a Soundtrack");
+		lblSong.setText("Do you really want to listen this song? choose another one.");
 		progress.setProgress(0.0);
 		
     }
@@ -48,7 +48,16 @@ public class Controller implements  Runnable{
 
 	@FXML
     void chooseFile(ActionEvent event) {
+        player.stopMusic();
+        player.chooseFile();
 
+        startThread();
+        String name = player.getFileName();
+        lblSong.setText(name);
+
+    }
+
+    void startThread(){
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 while(update())
@@ -68,11 +77,6 @@ public class Controller implements  Runnable{
         });
 
         t1.start();
-		player.stopMusic();
-		player.chooseFile();
-        String name = player.getFileName();
-        lblSong.setText(name);
-
     }
 
     @FXML
@@ -83,6 +87,9 @@ public class Controller implements  Runnable{
 			player.pauseMusic();	
 		}else{
 			System.out.println("Play Music");
+			startThread();
+			// String name = player.getFileName();
+            //lblSong.setText(name);
 			player.restartMusic();
 		}
     }

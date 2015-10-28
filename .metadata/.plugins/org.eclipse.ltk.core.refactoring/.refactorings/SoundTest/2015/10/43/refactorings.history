@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MP3Jil.java&apos; to &apos;JavaFX_MP3Player/src/application&apos;&#x0A;- Original project: &apos;SoundTest&apos;&#x0A;- Destination element: &apos;JavaFX_MP3Player/src/application&apos;&#x0A;- Original element: &apos;MP3Jil.java&apos;" description="Copy compilation unit" destination="=JavaFX_MP3Player/src&lt;application" element1="/src&lt;{MP3Jil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1445421893925" units="1" version="1.0"/>
+</session>

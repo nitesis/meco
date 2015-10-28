@@ -91,15 +91,25 @@ public class Main extends Application {
         
         PlugInManager.addPlugIn("com.sun.media.codec.audio.mp3.JavaDecoder", new Format[]{inMP3,inMPEG}, 
         		new Format[]{out}, PlugInManager.CODEC);
-        
+
+
+
+
         try {
-        	//wähle einen SoundTrack aus für mac (//file:...pfad)
-        	p = Manager.createRealizedPlayer(new MediaLocator("file:c:/hikids.mp3"));//new File(sfile).toURI().toURL()));	        	
+        	//wâ€°hle einen SoundTrack aus fÂ¸r mac (//file:...pfad)
+			FileChooser fileChooser = new FileChooser();
+			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("MP3 files (*.mp3)", "*.MP3");
+			fileChooser.getExtensionFilters().add(extFilter);
+			File file = fileChooser.showOpenDialog(primaryStage);
+			setFile(file);
+
+        	p = Manager.createRealizedPlayer(new MediaLocator(getFile().toURI().toURL()));//new File(sfile).toURI().toURL()));
         	
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+
 
 	}
 	
@@ -123,9 +133,10 @@ public class Main extends Application {
 	public File getFile() {
 		return file;
 	}
+
 	public void setFile(File file) {
 		this.file = file;
 	}
-	
+
 	
 }
